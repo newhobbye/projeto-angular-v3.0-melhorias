@@ -1,0 +1,29 @@
+<div class="busca-id">
+
+  <div class="buscaId-container-block">
+    <div class="buscaId-container">
+      <p>Digite o id da busca:</p>
+      <input class="form-input" type="text" name="id-busca" id="cpf_input"  [(ngModel)]="id">
+      <button type="button" class="button-blue" (click)="buscarId(id)">Buscar</button>
+
+      <span>{{ response }}</span>
+    </div>
+  </div>
+  <ng-container>
+    <table class="busca-id-container-result">
+      <tr class="result-tr">
+        <th class="tr-content-result">{{funcionario.name}}</th>
+        <th class="tr-content-result">{{funcionario.age}}</th>
+        <th class="tr-content-result">{{funcionario.birthDate}}</th>
+        <th class="tr-content-result">{{funcionario.company}}</th>
+        <th class="tr-content-result">{{funcionario.position}}</th>
+        <th class="tr-content-result">{{funcionario.salary}}</th>
+        <th class="tr-content-result">{{funcionario.state}}</th>
+        <th class="tr-content-result">{{funcionario.city}}</th>
+        <th class="tr-content-result">{{funcionario.district}}</th>
+        <th class="tr-content-result">{{funcionario.street}}</th>
+        <th class="tr-content-result">{{funcionario.numberOfStreet}}</th>
+      </tr>
+    </table>
+  </ng-container>
+  </div>

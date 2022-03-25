@@ -1,0 +1,71 @@
+<form class="form-container">
+
+  <div class="form-tamanho">
+
+      <div class="form-small-container">
+        <p class="paragrafo">CPF:</p>
+        <input class="form-input" type="text" name="cpf" id="cpf_input"  [(ngModel)]="funcionario.cpf">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">Name:</p>
+        <input class="form-input" type="text" name="name" id="name-input"  [(ngModel)]="funcionario.name">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">Age: </p>
+        <input class="form-input" type="number" name="age" id="age_input"  [(ngModel)]="funcionario.age">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">birthDate: </p>
+        <input class="form-input" type="text" name="birthDate" id="birthDate_input"  [(ngModel)]="funcionario.birthDate">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">Company: </p>
+        <input class="form-input" type="text" name="company" id="company_input"  [(ngModel)]="funcionario.company">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">Position: </p>
+        <input class="form-input" type="text" name="position" id="position_input"  [(ngModel)]="funcionario.position">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">Salary: </p>
+        <input class="form-input" type="number" name="salary" id="salary_input"  [(ngModel)]="funcionario.salary">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">State: </p>
+        <input class="form-input" type="text" name="state" id="state_input" [(ngModel)]="funcionario.state">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">City: </p>
+        <input class="form-input" type="text" name="city" id="city_input" [(ngModel)]="funcionario.city">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">District: </p>
+        <input class="form-input" type="text" name="district" id="district_input"  [(ngModel)]="funcionario.district">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">Street: </p>
+        <input class="form-input" type="text" name="street" id="street_input"  [(ngModel)]="funcionario.street">
+      </div>
+
+      <div class="form-small-container">
+        <p class="paragrafo">Number of Street: </p>
+        <input class="form-input" type="number" name="numberOfStreet" id="numberOfStreet_input"  [(ngModel)]="funcionario.numberOfStreet">
+      </div>
+
+      <div class="form-small-container">
+        <button class="button-blue" type="button" (click)="cadastrar()">Cadastrar</button>
+      </div>
+
+  </div>
+
+</form>

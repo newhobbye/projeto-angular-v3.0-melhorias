@@ -1,0 +1,42 @@
+<div class="title-h1">
+  <h1 class="h1">Funcionarios cadastrados no banco: </h1>
+</div>
+
+<div class="container-result">
+
+  <div class="container-title"  *ngFor='let funcionario of funcionarios'>
+      <tr class="title">
+        <th class="title-line">CPF:</th>
+        <th class="title-line">NOME:</th>
+        <th class="title-line">IDADE</th>
+        <th class="title-line">NASCIMENTO:</th>
+        <th class="title-line">EMPRESA:</th>
+        <th class="title-line">CARGO:</th>
+        <th class="title-line">SALARIO:</th>
+        <th class="title-line">ESTADO:</th>
+        <th class="title-line">CIDADE:</th>
+        <th class="title-line">BAIRRO:</th>
+        <th class="title-line">RUA:</th>
+        <th class="title-line">NUMERO:</th>
+      </tr>
+
+      <tr tr class="result">
+        <th class="result-line">{{funcionario.cpf}}</th>
+        <th class="result-line">{{funcionario.name}}</th>
+        <th class="result-line">{{funcionario.age}}</th>
+        <th class="result-line">{{funcionario.birthDate}}</th>
+        <th class="result-line">{{funcionario.company}}</th>
+        <th class="result-line">{{funcionario.position}}</th>
+        <th class="result-line">{{funcionario.salary}}</th>
+        <th class="result-line">{{funcionario.state}}</th>
+        <th class="result-line">{{funcionario.city}}</th>
+        <th class="result-line">{{funcionario.district}}</th>
+        <th class="result-line">{{funcionario.street}}</th>
+        <th class="result-line">{{funcionario.numberOfStreet}}</th>
+      </tr>
+
+
+  </div>
+
+</div>
+

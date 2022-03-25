@@ -1,0 +1,78 @@
+.container {
+display: grid;
+grid-template-columns: 1fr 3fr;
+grid-template-rows: 10vh 90vh;
+grid-template-areas:"t tb" "m bo";
+
+
+}
+
+.container-title {
+  grid-area: t;
+  border-bottom: 1px solid rgba(178, 197, 5, 0.966);
+
+  background: rgb(240,255,41);
+}
+
+.container-title-bar {
+  grid-area: tb;
+  border-bottom: 1px solid rgba(178, 197, 5, 0.966);
+
+  background: rgb(240,255,41);
+  background: -moz-linear-gradient(left, rgb(240,255,41) 0%, rgb(255,219,49) 50%, rgb(224,75,34) 100%);
+  background: -webkit-linear-gradient(left, rgb(240,255,41) 0%, rgb(255,219,49) 50%, rgb(224,75,34) 100%);
+  background: linear-gradient(to right, rgb(240,255,41) 0%, rgb(255,219,49) 50%, rgb(224,75,34) 100%);
+}
+
+.container-menu {
+  grid-area: m;
+  border-right: 1px solid rgba(57, 63, 3, 0.37);
+
+}
+
+.container-menu-box {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+}
+
+.box-icon {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 8px;
+
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color: rgba(2, 2, 7, 0.3);
+
+}
+
+.ancora {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+}
+
+
+
+#icons {
+  margin-right: 8px;
+  height: 28px;
+}
+
+.p {
+  padding-top: 7px;
+}
+
+.container-body {
+  grid-area: bo;
+}
+
