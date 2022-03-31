@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioService } from './funcionario/funcionario.service';
@@ -15,8 +16,9 @@ import { EnviaComponent } from './funcionario/envia/envia.component';
 import { BuscaComponent } from './funcionario/busca/busca.component';
 import { DeletaComponent } from './funcionario/deleta/deleta.component';
 import { EditaComponent } from './funcionario/edita/edita.component';
-
-
+import {MatTableModule} from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { FilterPipe } from './funcionario/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { EditaComponent } from './funcionario/edita/edita.component';
     EnviaComponent,
     BuscaComponent,
     DeletaComponent,
-    EditaComponent
+    EditaComponent,
+    FilterPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -34,8 +38,11 @@ import { EditaComponent } from './funcionario/edita/edita.component';
     MatMenuModule,
     MatIconModule,
     MatExpansionModule,
+    MatToolbarModule,
+    MatTableModule,
     HttpClientModule,
     FormsModule,
+    MatButtonModule
   ],
   providers: [FuncionarioService, HttpClientModule],
   bootstrap: [AppComponent]

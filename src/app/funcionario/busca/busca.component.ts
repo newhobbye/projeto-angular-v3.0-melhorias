@@ -11,7 +11,8 @@ export class BuscaComponent implements OnInit {
 
   funcionario: FuncionarioModel = new FuncionarioModel();
   public id: number = 0;
-  public response: string = '';
+  public error: string = '';
+  sucess: boolean = false;
 
   constructor(private funcionarioService: FuncionarioService) { }
 
@@ -22,10 +23,11 @@ export class BuscaComponent implements OnInit {
   buscarId(id: number){
     this.funcionarioService.buscarId(id).subscribe(funcionario => {
       this.funcionario = funcionario;
+      this.sucess = true;
     }, err => {
       console.log('Erro ao buscar por id: ' + err.message);
 
-      this.response = 'Erro ao buscar por id: Funcionario não encontrado!';
+      this.error = 'Erro ao buscar por id: Funcionario não encontrado!';
     })
   }
 }

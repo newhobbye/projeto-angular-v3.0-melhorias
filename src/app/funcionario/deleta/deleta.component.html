@@ -1,7 +1,19 @@
-<div class="buscaId-container">
-  <p>Digite o id que deseja deletar:</p>
-  <input class="form-input" type="text" name="id-busca" id="cpf_input"  [(ngModel)]="id">
-  <button type="button" class="button-blue" (click)="deletarId(id)">Deletar</button>
+<div class="container">
 
-  <span>{{ response }}</span>
+  <div class="buscaId-container-block">
+    <p>Digite o id que deseja deletar:</p>
+    <input
+      class="form-input"
+      type="text"
+      name="id-busca"
+      id="cpf_input"
+      [(ngModel)]="id"
+    />
+    <button type="button" class="button-blue" (click)="deletarId(id)">
+      Deletar
+    </button>
+
+    <span>{{ response }}</span>
+  </div>
+
 </div>

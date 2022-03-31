@@ -11,6 +11,9 @@ export class EnviaComponent implements OnInit {
 
   funcionario: FuncionarioModel = new FuncionarioModel();
 
+  sucess: boolean = false;
+  error = '';
+
 
   constructor(private funcionarioService: FuncionarioService) { }
 
@@ -21,10 +24,11 @@ export class EnviaComponent implements OnInit {
 
   cadastrar() {
     this.funcionarioService.cadastrar(this.funcionario).subscribe(funcionario =>{
-      funcionario = new FuncionarioModel();
-    }, err =>{
-      console.log('Erro ao listar funcionarios: ' + err.message);
+    this.sucess = true;
 
+    }, err =>{
+
+      this.error = 'Erro ao cadastrar funcionario! Algum dado pode estar faltando, errado ou já existe no banco de dados!';
     });
   }
  //parei aqui

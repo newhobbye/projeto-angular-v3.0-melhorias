@@ -1,64 +1,104 @@
 <div class="container">
-
   <div class="container-title">
+    <mat-toolbar id="mat-toolbar-title">
 
+      <div class="container-flex">
 
-  </div>
+        <button id="general-button"
+          mat-icon-button
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon id="icon-title" >menu</mat-icon>
+        </button>
 
-  <div class="container-title-bar">
+        <a href="">
+          <div class="">
+            <img src="../assets/images/logo-header.png" id="img-title" alt="">
+          </div>
+        </a>
+
+        <span class="example-spacer"></span>
+
+      </div>
+
+      <div>
+
+        <button mat-button color="primary"><mat-icon>favorite</mat-icon></button>
+
+        <button mat-button color="accent" ><mat-icon>share</mat-icon></button>
+
+      </div>
+    </mat-toolbar>
 
   </div>
 
   <div class="container-menu">
-
     <div class="container-menu-box">
-
       <div class="box-icon">
-        <a class="ancora"href="FuncionarioComponent">
-          <mat-icon id="icons" aria-hidden="false" aria-label="Example home icon"> home </mat-icon>
+        <a class="ancora" href="FuncionarioComponent">
+          <mat-icon
+            id="icons"
+            aria-hidden="false"
+            aria-label="Example home icon"
+          >
+            home
+          </mat-icon>
           <p class="p">Home</p>
-         </a>
-      </div>
-
-      <div class="box-icon">
-        <a class="ancora"href="EnviaComponent">
-          <mat-icon id="icons" aria-hidden="false" aria-label="Example home icon">assignment</mat-icon>
-           <p class="p"> Enviar Funcionario </p>
         </a>
       </div>
 
       <div class="box-icon">
-        <a class="ancora"href="BuscaComponent">
-          <mat-icon id="icons" aria-hidden="false" aria-label="Example home icon">assignment_ind</mat-icon>
-          <p class="p"> Busca Especifica</p>
+        <a class="ancora" href="EnviaComponent">
+          <mat-icon
+            id="icons"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            >assignment</mat-icon
+          >
+          <p class="p">Enviar Funcionario</p>
         </a>
       </div>
 
       <div class="box-icon">
-        <a class="ancora"href="DeletaComponent">
-          <mat-icon id="icons" aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
-          <p class="p"> Deletar Funcionario </p>
+        <a class="ancora" href="BuscaComponent">
+          <mat-icon
+            id="icons"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            >assignment_ind</mat-icon
+          >
+          <p class="p">Busca Especifica</p>
         </a>
       </div>
 
       <div class="box-icon">
-        <a class="ancora"href="EditaComponent">
-          <mat-icon id="icons" aria-hidden="false" aria-label="Example home icon">dns</mat-icon>
-         <p class="p">  Editar Funcionario </p>
+        <a class="ancora" href="DeletaComponent">
+          <mat-icon
+            id="icons"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            >delete</mat-icon
+          >
+          <p class="p">Deletar Funcionario</p>
         </a>
       </div>
 
-
-
+      <div class="box-icon">
+        <a class="ancora" href="EditaComponent">
+          <mat-icon
+            id="icons"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            >dns</mat-icon
+          >
+          <p class="p">Editar Funcionario</p>
+        </a>
+      </div>
     </div>
-
   </div>
 
   <div class="container-body">
     <router-outlet></router-outlet>
-
-
   </div>
-
-
 </div>
