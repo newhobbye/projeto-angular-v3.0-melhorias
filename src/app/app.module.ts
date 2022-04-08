@@ -14,11 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioService } from './funcionario/funcionario.service';
 import { EnviaComponent } from './funcionario/envia/envia.component';
 import { BuscaComponent } from './funcionario/busca/busca.component';
-import { DeletaComponent } from './funcionario/deleta/deleta.component';
+
 import { EditaComponent } from './funcionario/edita/edita.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { FilterPipe } from './funcionario/filter.pipe';
+import {MatInputModule} from '@angular/material/input';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { DeletaComponent } from './funcionario/deleta/deleta.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,11 @@ import { FilterPipe } from './funcionario/filter.pipe';
     MatTableModule,
     HttpClientModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatSidenavModule,
+
+
   ],
   providers: [FuncionarioService, HttpClientModule],
   bootstrap: [AppComponent]

@@ -1,110 +1,110 @@
+<div class="div-absolute-delete" *ngIf="clickDelete == true">
+
+   <div class="text-delete">
+    <h2 class="text-delete-h2">Excluir funcionário?</h2>
+    <p class="text-delete-p">{{funcionarioDeleteParagraph}}</p>
+  </div>
+
+  <div class="div-buttons-delete" >
+    <button mat-raised-button color="warn" class="button-confirm-delete" (click)="deleteId()">
+      <span>Deletar</span>
+    </button>
+
+    <button mat-raised-button class="button-cancel-delete" (click)="cancelDeleteClick()">
+      <span>Cancelar</span>
+    </button>
+  </div>
+</div>
+
+
+
 <div class="container-principal">
-
   <div class="title-bar">
-
-    <div class="title-h1">
-    <h1 class="h1">Funcionarios cadastrados no banco: </h1>
-
+    <div class="title-h1-edit">
+      <h1 class="h1" *ngIf="validation == false">Funcionarios</h1>
+      <p class="title-h1-register" *ngIf="validation == false">
+        {{ total }} registros
+      </p>
     </div>
 
     <div class="filter">
+      <div class="div-filter" *ngIf="validation == false">
+        <div class="input-box">
+          <input
+            class="input-filter"
+            type="text"
+            name="search"
+            placeholder="Digite a busca:"
+            [(ngModel)]="search"
+            (ngModelChange)="onChange($event)"
+          />
+        </div>
 
-      <div class="div-filter">
-
-        <button class="cancel-button" type="button" (click)="cancelarEdit()" *ngIf="cpf != '' ">Cancelar Edição</button>
-
-        <input class="input-filter" type="text"
-         name="search" placeholder="Digite a busca:"
-         [(ngModel)]="search" (ngModelChange)="onChange($event)">
+        <div class="icon-search-box">
+          <mat-icon class="mat-18" id="input-filter-icon">search</mat-icon>
+        </div>
       </div>
-
-
     </div>
   </div>
 
 
-    <table class="container-title" >
 
-        <tr class="title">
-          <th class="title-line">CPF:</th>
-          <th class="title-line">NOME:</th>
-          <th class="title-line">IDADE</th>
-          <th class="title-line">NASCIMENTO:</th>
-          <th class="title-line">EMPRESA:</th>
-          <th class="title-line">CARGO:</th>
-          <th class="title-line">SALARIO:</th>
-          <th class="title-line">ESTADO:</th>
-          <th class="title-line">CIDADE:</th>
-          <th class="title-line">BAIRRO:</th>
-          <th class="title-line">RUA:</th>
-          <th class="title-line">NUMERO:</th>
-        </tr>
+  <table class="container-body" *ngIf="validation == false">
+    <tr class="tr-title">
+      <div class="delete"></div>
+      <th class="th-title-line">CPF:</th>
+      <th class="th-title-line">NOME:</th>
+      <th class="th-title-line">EMPRESA:</th>
+      <th class="th-title-line">CARGO:</th>
+      <th class="th-title-line">SALARIO:</th>
+    </tr>
 
-        <tr  class="result" *ngFor="let funcionario of funcionarios | filter: search" (click)="click(funcionario)" >
-          <th class="result-line">{{funcionario.cpf}}
-            <button type="button" class="" (click)="alteraFuncionario(funcionario)" *ngIf="funcionario.cpf == cpf">Enviar</button>
-          </th>
+    <tr
+      class="tr-result"
+      *ngFor="let funcionario of funcionarios | filter: search"
+    >
+      <div class="delete">
+        <button
+          class="button-delete"
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          #menuTrigger
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
 
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="captured(funcionario)">
+            <mat-icon>remove_red_eye</mat-icon>
+            <span>Visualizar</span>
+          </button>
 
-          <th class="result-line" *ngIf="funcionario.cpf != cpf"> {{funcionario.name}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-           <input class="input-result-name" type="text" placeholder="{{funcionario.name}}"
-           [(ngModel)]="funcionario2.name"></th>
+          <button mat-menu-item (click)="deleteClick(funcionario)">
+            <mat-icon>delete</mat-icon>
+            <span>Deletar</span>
+          </button>
 
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.age}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-age" type="text" placeholder="{{funcionario.age}}"
-            [(ngModel)]="funcionario2.age"></th>
+        </mat-menu>
+      </div>
 
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.birthDate}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-birthDate" type="text" placeholder="{{funcionario.birthDate}}"
-            [(ngModel)]="funcionario2.birthDate"></th>
+      <th class="th-result-line" (click)="captured(funcionario)">
+        {{ funcionario.cpf }}
+      </th>
+      <th class="th-result-line" (click)="captured(funcionario)">
+        {{ funcionario.name }}
+      </th>
+      <th class="th-result-line" (click)="captured(funcionario)">
+        {{ funcionario.company }}
+      </th>
+      <th class="th-result-line" (click)="captured(funcionario)">
+        {{ funcionario.position }}
+      </th>
+      <th class="th-result-line" (click)="captured(funcionario)">
+        {{ funcionario.salary }}
+      </th>
+    </tr>
+  </table>
 
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.company}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-company" type="text" placeholder="{{funcionario.company}}"
-            [(ngModel)]="funcionario2.company"></th>
-
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.position}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-position" type="text" placeholder="{{funcionario.position}}"
-            [(ngModel)]="funcionario2.position"></th>
-
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.salary}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-salary" type="text" placeholder="{{funcionario.salary}}"
-            [(ngModel)]="funcionario2.salary"></th>
-
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.state}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-state" type="text" placeholder="{{funcionario.state}}"
-            [(ngModel)]="funcionario2.state"></th>
-
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.city}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-city" type="text" placeholder="{{funcionario.city}}"
-            [(ngModel)]="funcionario2.city"></th>
-
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.district}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-district" type="text" placeholder="{{funcionario.district}}"
-            [(ngModel)]="funcionario2.district"></th>
-
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.street}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-street" type="text" placeholder="{{funcionario.street}}"
-            [(ngModel)]="funcionario2.street"></th>
-
-          <th class="result-line" *ngIf="funcionario.cpf != cpf">{{funcionario.numberOfStreet}}</th>
-          <th class="result-line" *ngIf="funcionario.cpf == cpf">
-            <input class="input-result-numberOfStreet" type="text" placeholder="{{funcionario.numberOfStreet}}"
-            [(ngModel)]="funcionario2.numberOfStreet"></th>
-
-        </tr>
-
-
-    </table>
-
+  <app-edita [funcionario2]="funcionarioEdit"></app-edita>
 </div>
-

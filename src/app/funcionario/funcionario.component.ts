@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { FuncionarioModel } from './funcionario.model';
 import { FuncionarioService } from './funcionario.service';
+
 
 
 @Component({
@@ -12,27 +14,37 @@ import { FuncionarioService } from './funcionario.service';
 export class FuncionarioComponent implements OnInit {
 
 
-
-
-
   funcionario: FuncionarioModel = new FuncionarioModel();
   funcionarios: Array<FuncionarioModel> = new Array();
   search:string="";
-  cpf: string = '';
-  contador: number[] = [];
+  validation: boolean = false;
+  total: number = 0;
 
-  funcionario2: FuncionarioModel = new FuncionarioModel();
 
-  constructor(private funcionarioService: FuncionarioService) { }
+  clickDelete: boolean = false;
+  funcionarioDelete: FuncionarioModel = new FuncionarioModel();
+  funcionarioDeleteParagraph: string = "";
+
+  public response: string = '';
+
+
+  funcionarioEdit: FuncionarioModel = new FuncionarioModel();
+
+  constructor(private funcionarioService: FuncionarioService,
+    private router: Router){ }
 
   ngOnInit(): void {
     this.listarFuncionarios();
+
+
+
   }
 
   listarFuncionarios(){
     this.funcionarioService.listarFuncionarios().subscribe(
       funcionarios =>{
       this.funcionarios = funcionarios;
+      this.total = funcionarios.length;
 
     },  err =>{
       console.log('Erro ao listar os alunos', err);
@@ -40,43 +52,61 @@ export class FuncionarioComponent implements OnInit {
  }
 
  onChange(event: any) {
-
-
-   console.log(this.search, "aqui");
+  console.log(this.search, "aqui");
 
  }
 
- click(funcionario: FuncionarioModel) {
-  console.log("Está sendo clicado");
 
-  let value: number = 0;
-  this.contador.push(value++);
 
-  this.cpf =  funcionario.cpf;
+ captured(funcionario: FuncionarioModel) {
 
+  this.funcionarioEdit = funcionario;
+  this.validation = true;
  }
 
- alteraFuncionario(funcionario: FuncionarioModel){
 
-  this.funcionario2.cpf = funcionario.cpf;
-  let id = Number(this.cpf);
-  this.funcionarioService.editarId(id, this.funcionario2).subscribe(funcionario =>{
+ deleteId() {
 
-    this.funcionario2 = new FuncionarioModel();
+  let id: number = Number(this.funcionarioDelete.cpf);
+  return this.funcionarioService.deletarId(id).subscribe(nada =>{
 
-    this.cpf='';
-    this.listarFuncionarios();
+    alert('Deletado!');
+    this.funcionarioDelete = new FuncionarioModel();
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['./../']);
+    //this.response = 'Deletado!';
 
-    }, err =>{
+  }, err => {
+    console.log('Erro ao deletar por id' + err.message);
+    this.response = 'Erro ao deletar por id: Funcionario não encontrado!';
+  });
 
-      console.log(err);
 
-    });
-
- }
-
- cancelarEdit(){
-  this.cpf='';
 }
+
+deleteClick(funcionario: FuncionarioModel){
+
+
+  this.clickDelete = true;
+  this.funcionarioDelete = funcionario;
+  this.funcionarioDeleteParagraph = funcionario.name;
+
 }
+
+
+
+
+
+cancelDeleteClick(){
+
+  this.clickDelete = false;
+  this.funcionarioDelete = new FuncionarioModel();
+}
+
+}
+
+
+
+
 

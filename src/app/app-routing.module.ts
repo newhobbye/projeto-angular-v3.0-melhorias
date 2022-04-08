@@ -10,7 +10,7 @@ import { FuncionarioComponent } from './funcionario/funcionario.component';
 
 const routes: Routes = [
   {path: '', component: FuncionarioComponent},
-  {path: 'FuncionarioComponent', component:	FuncionarioComponent},
+  {path: 'http://localhost:4200', component: FuncionarioComponent},
   {path: 'EnviaComponent', component:	EnviaComponent},
   {path: 'BuscaComponent', component: BuscaComponent},
   {path: 'DeletaComponent', component: DeletaComponent},
@@ -18,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'ignore'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

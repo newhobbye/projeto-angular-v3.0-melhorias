@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'meu-sistema-v3.0';
+  title = 'Sistema com base no Corban';
+  showFiller = true;
 }

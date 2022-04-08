@@ -1,17 +1,25 @@
-.container {
 
-}
+/*=========TITLE=========*/
 
 .box-title {
+  display: block;
+  text-align: center;
 
+  height: 30px;
+  margin-top: 01%;  /*Tamanho fixo aqui*/
 }
+
 
 .title-h1 {
-
+  font-size: 30px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
 }
 
-.form-container {
 
+.box-span {
+text-align: center;
 }
 
 .sucess {
@@ -21,3 +29,100 @@
 .error {
   color: red;
 }
+
+/*=========TITLE=========*/
+
+/*=========FORM=========*/
+
+
+.example-form { /*container principal do form*/
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.container-space {
+  display: block;
+  width: 60%;
+  border: 1px solid #ebebeb;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 2%;
+
+}
+
+/* td {
+  alterar espaço entre as td
+} */
+
+.container-mat-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.example-full-width { /*form full width*/
+  width: 100%;
+}
+
+
+
+.mat-form-field-appearance-fill {
+  background-color: white!important;
+}
+
+.box-button-action {
+  display:flex;
+}
+
+.button {
+  margin-right: 4px;
+  background-color: #2196f3;
+  margin-bottom: 10px;
+}
+
+/*=========FORM=========*/
+
+/*=========MEDIA=========*/
+
+@media (max-width: 1095px) {
+  .title-h1 {
+    font-size: 22px;
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .title-h1 {
+    font-size: 16px;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+}
+
+@media (max-width: 706px) {
+  .title-h1 {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 586px) {
+
+
+}
+
+@media (max-width: 320px) {
+
+}
+
+/*=========MEDIA=========*/

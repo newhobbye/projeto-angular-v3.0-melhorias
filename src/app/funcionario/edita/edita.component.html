@@ -1,198 +1,188 @@
-<div class="busca-id">
-  <div class="buscaId-container-block">
-    <div class="buscaId-container">
-      <p>Digite o id do funcionario que quer editar:</p>
-      <input
-        class="form-input"
-        type="text"
-        name="id-busca"
-        id="cpf_input"
-        [(ngModel)]="id"
-      />
-      <button type="button" class="button-blue" (click)="buscarId(id)">
-        Buscar
-      </button>
+<div class="body-edita" *ngIf="funcionario2.cpf">
+  <div class="title2-h1-edit">
+    <h1 class="h1-edit">Editar funcionario</h1>
+    <span class="h1-edit">{{ response }}</span>
+  </div>
 
-      <span *ngIf="!funcionario.name">{{ response }}</span>
+  <form class="example-form" *ngIf="funcionario2.cpf">
+    <div class="container-space">
+      <div class="container-mat-form">
+        <div class="form-input-box">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> CPF: </mat-label>
+            <input
+              matInput
+              disabled
+              value="{{ funcionario2.cpf }}"
+              name="cpf"
+              id="edit-form-fild"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="form-input-box">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width" appearance="legacy">
+                  <mat-label>Nome: {{ funcionario2.name }}</mat-label>
+                  <input
+                    matInput
+                    [(ngModel)]="funcionario2.name"
+                    name="name"
+                    id="edit-form-fild"
+                  />
+                </mat-form-field>
+              </td>
+
+              <td>
+                <mat-form-field class="example-full-width" appearance="legacy">
+                  <mat-label>Idade: {{ funcionario2.age }}</mat-label>
+                  <input
+                    matInput
+                    [(ngModel)]="funcionario2.age"
+                    name="age"
+                    id="edit-form-fild"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="form-input-box">
+          <p>
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <mat-label
+                >Data de nascimento: {{ funcionario2.birthDate }}</mat-label
+              >
+              <textarea
+                matInput
+                placeholder=""
+                [(ngModel)]="funcionario2.birthDate"
+                name="birthDate"
+                id="edit-form-fild"
+              ></textarea>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <mat-label>Empresa: {{ funcionario2.company }}</mat-label>
+              <textarea
+                matInput
+                [(ngModel)]="funcionario2.company"
+                name="company"
+                id="edit-form-fild"
+              ></textarea>
+            </mat-form-field>
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <ng-container *ngIf="funcionario.name">
-    <table class="busca-id-container-result">
-      <tr class="title">
-        <th class="title-line">CPF:</th>
-        <th class="title-line">NOME:</th>
-        <th class="title-line">IDADE</th>
-        <th class="title-line">NASCIMENTO:</th>
-        <th class="title-line">EMPRESA:</th>
-        <th class="title-line">CARGO:</th>
-        <th class="title-line">SALARIO:</th>
-        <th class="title-line">ESTADO:</th>
-        <th class="title-line">CIDADE:</th>
-        <th class="title-line">BAIRRO:</th>
-        <th class="title-line">RUA:</th>
-        <th class="title-line">NUMERO:</th>
-      </tr>
+    <div class="container-space">
+      <div class="container-mat-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Cargo: {{ funcionario2.position }}</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario2.position"
+                  name="position"
+                />
+              </mat-form-field>
+            </td>
 
-      <tr class="result-tr">
-        <th class="result-line">{{ funcionario.cpf }}</th>
-        <th class="result-line">{{ funcionario.name }}</th>
-        <th class="result-line">{{ funcionario.age }}</th>
-        <th class="result-line">{{ funcionario.birthDate }}</th>
-        <th class="result-line">{{ funcionario.company }}</th>
-        <th class="result-line">{{ funcionario.position }}</th>
-        <th class="result-line">{{ funcionario.salary }}</th>
-        <th class="result-line">{{ funcionario.state }}</th>
-        <th class="result-line">{{ funcionario.city }}</th>
-        <th class="result-line">{{ funcionario.district }}</th>
-        <th class="result-line">{{ funcionario.street }}</th>
-        <th class="result-line">{{ funcionario.numberOfStreet }}</th>
-      </tr>
-    </table>
-  </ng-container>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Salário: {{ funcionario2.salary }}</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario2.salary"
+                  name="salary"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
 
-  <div *ngIf="funcionario.name" class="title-2">
-    <h2>Digite as informações a serem alteradas no formulario:</h2>
-  </div>
-  <form class="form-container" *ngIf="funcionario.name">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Estado: {{ funcionario2.state }}</mat-label>
+                <input matInput [(ngModel)]="funcionario2.state" name="state" />
+              </mat-form-field>
+            </td>
 
-      <div class="">
-        <p class="paragrafo">CPF:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="cpf"
-          id="cpf_input"
-          [(ngModel)]="funcionario2.cpf"
-        />
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Cidade: {{ funcionario2.city }}</mat-label>
+                <input matInput [(ngModel)]="funcionario2.city" name="city" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <p>
+          <mat-form-field class="example-full-width" appearance="legacy">
+            <mat-label>Bairro: {{ funcionario2.district }}</mat-label>
+            <textarea
+              matInput
+              placeholder=""
+              [(ngModel)]="funcionario2.district"
+              name="district"
+            ></textarea>
+          </mat-form-field>
+        </p>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Rua: {{ funcionario2.street }}</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario2.street"
+                  name="street"
+                />
+              </mat-form-field>
+            </td>
+
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Numero: {{ funcionario2.numberOfStreet }}</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario2.numberOfStreet"
+                  name="numberOfStreet"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <div class="box-button-action">
+          <div class="button">
+            <button
+              mat-raised-button
+              color="primary"
+              id="send"
+              (click)="enviar(funcionario2)"
+            >
+              Alterar
+            </button>
+          </div>
+
+          <div class="button">
+            <button mat-raised-button color="danger" (click)="cancelar()">
+              Cancelar
+            </button>
+          </div>
+        </div>
       </div>
-
-      <div class="">
-        <p class="paragrafo">Name:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="name"
-          id="name-input"
-          [(ngModel)]="funcionario2.name"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">Age:</p>
-        <input
-          class="form-input"
-          type="number"
-          name="age"
-          id="age_input"
-          [(ngModel)]="funcionario2.age"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">birthDate:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="birthDate"
-          id="birthDate_input"
-          [(ngModel)]="funcionario2.birthDate"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">Company:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="company"
-          id="company_input"
-          [(ngModel)]="funcionario2.company"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">Position:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="position"
-          id="position_input"
-          [(ngModel)]="funcionario2.position"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">Salary:</p>
-        <input
-          class="form-input"
-          type="number"
-          name="salary"
-          id="salary_input"
-          [(ngModel)]="funcionario2.salary"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">State:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="state"
-          id="state_input"
-          [(ngModel)]="funcionario2.state"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">City:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="city"
-          id="city_input"
-          [(ngModel)]="funcionario2.city"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">District:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="district"
-          id="district_input"
-          [(ngModel)]="funcionario2.district"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">Street:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="street"
-          id="street_input"
-          [(ngModel)]="funcionario2.street"
-        />
-      </div>
-
-      <div class="">
-        <p class="paragrafo">Number of Street:</p>
-        <input
-          class="form-input"
-          type="number"
-          name="numberOfStreet"
-          id="numberOfStreet_input"
-          [(ngModel)]="funcionario2.numberOfStreet"
-        />
-      </div>
-
-      <div class="">
-        <button class="button-blue" type="button" (click)="editarId()">
-          Cadastrar
-        </button>
-      </div>
-
+    </div>
   </form>
 </div>

@@ -1,155 +1,184 @@
 <div class="container">
-
   <div class="box-title">
-    <h1 class="title-h1"> Digite o formulario a ser cadastrado: </h1>
+    <h1 class="title-h1">Digite o formulario a ser cadastrado:</h1>
   </div>
 
   <div class="box-span">
     <p class="sucess" *ngIf="sucess == true">Dados enviados com sucesso!</p>
 
-    <p class="error" *ngIf="sucess == false">{{error}} </p>
+    <p class="error" *ngIf="sucess == false">{{ error }}</p>
   </div>
 
-  <form class="form-container">
-    <div class="form-tamanho">
-      <div class="form-small-container">
-        <p class="paragrafo">CPF:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="cpf"
-          id="cpf_input"
-          [(ngModel)]="funcionario.cpf"
-        />
-      </div>
+  <form class="example-form">
+    <div class="container-space">
+      <div class="container-mat-form">
+        <div class="form-input-box">
+          <mat-form-field class="example-full-width" appearance="legacy">
+            <mat-label> CPF: </mat-label>
+            <input
+              matInput
+              [(ngModel)]="funcionario.cpf"
+              name="cpf"
+              id="edit-form-fild"
+            />
+          </mat-form-field>
+        </div>
 
-      <div class="form-small-container">
-        <p class="paragrafo">Name:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="name"
-          id="name-input"
-          [(ngModel)]="funcionario.name"
-        />
-      </div>
+        <div class="form-input-box">
+          <table class="example-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="example-full-width" appearance="legacy">
+                  <mat-label>Nome: </mat-label>
+                  <input
+                    matInput
+                    [(ngModel)]="funcionario.name"
+                    name="name"
+                    id="edit-form-fild"
+                  />
+                </mat-form-field>
+              </td>
 
-      <div class="form-small-container">
-        <p class="paragrafo">Age:</p>
-        <input
-          class="form-input"
-          type="number"
-          name="age"
-          id="age_input"
-          [(ngModel)]="funcionario.age"
-        />
-      </div>
+              <td>
+                <mat-form-field class="example-full-width" appearance="legacy">
+                  <mat-label>Idade: </mat-label>
+                  <input
+                    matInput
+                    [(ngModel)]="funcionario.age"
+                    name="age"
+                    id="edit-form-fild"
+                  />
+                </mat-form-field>
+              </td>
+            </tr>
+          </table>
+        </div>
 
-      <div class="form-small-container">
-        <p class="paragrafo">birthDate:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="birthDate"
-          id="birthDate_input"
-          [(ngModel)]="funcionario.birthDate"
-        />
+        <div class="form-input-box">
+          <p>
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <mat-label>Data de nascimento: </mat-label>
+              <textarea
+                matInput
+                placeholder=""
+                [(ngModel)]="funcionario.birthDate"
+                name="birthDate"
+                id="edit-form-fild"
+              ></textarea>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field class="example-full-width" appearance="legacy">
+              <mat-label>Empresa: </mat-label>
+              <textarea
+                matInput
+                [(ngModel)]="funcionario.company"
+                name="company"
+                id="edit-form-fild"
+              ></textarea>
+            </mat-form-field>
+          </p>
+        </div>
       </div>
+    </div>
 
-      <div class="form-small-container">
-        <p class="paragrafo">Company:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="company"
-          id="company_input"
-          [(ngModel)]="funcionario.company"
-        />
-      </div>
+    <div class="container-space">
+      <div class="container-mat-form">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Cargo:</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario.position"
+                  name="position"
+                />
+              </mat-form-field>
+            </td>
 
-      <div class="form-small-container">
-        <p class="paragrafo">Position:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="position"
-          id="position_input"
-          [(ngModel)]="funcionario.position"
-        />
-      </div>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Salário:</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario.salary"
+                  name="salary"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
 
-      <div class="form-small-container">
-        <p class="paragrafo">Salary:</p>
-        <input
-          class="form-input"
-          type="number"
-          name="salary"
-          id="salary_input"
-          [(ngModel)]="funcionario.salary"
-        />
-      </div>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Estado:</mat-label>
+                <input matInput [(ngModel)]="funcionario.state" name="state" />
+              </mat-form-field>
+            </td>
 
-      <div class="form-small-container">
-        <p class="paragrafo">State:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="state"
-          id="state_input"
-          [(ngModel)]="funcionario.state"
-        />
-      </div>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Cidade:</mat-label>
+                <input matInput [(ngModel)]="funcionario.city" name="city" />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
 
-      <div class="form-small-container">
-        <p class="paragrafo">City:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="city"
-          id="city_input"
-          [(ngModel)]="funcionario.city"
-        />
-      </div>
+        <p>
+          <mat-form-field class="example-full-width" appearance="legacy">
+            <mat-label>Bairro: </mat-label>
+            <textarea
+              matInput
+              placeholder=""
+              [(ngModel)]="funcionario.district"
+              name="district"
+            ></textarea>
+          </mat-form-field>
+        </p>
 
-      <div class="form-small-container">
-        <p class="paragrafo">District:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="district"
-          id="district_input"
-          [(ngModel)]="funcionario.district"
-        />
-      </div>
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Rua:</mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario.street"
+                  name="street"
+                />
+              </mat-form-field>
+            </td>
 
-      <div class="form-small-container">
-        <p class="paragrafo">Street:</p>
-        <input
-          class="form-input"
-          type="text"
-          name="street"
-          id="street_input"
-          [(ngModel)]="funcionario.street"
-        />
-      </div>
+            <td>
+              <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Numero: </mat-label>
+                <input
+                  matInput
+                  [(ngModel)]="funcionario.numberOfStreet"
+                  name="numberOfStreet"
+                />
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
 
-      <div class="form-small-container">
-        <p class="paragrafo">Number of Street:</p>
-        <input
-          class="form-input"
-          type="number"
-          name="numberOfStreet"
-          id="numberOfStreet_input"
-          [(ngModel)]="funcionario.numberOfStreet"
-        />
-      </div>
-
-      <div class="form-small-container">
-        <button class="button-blue" type="button" (click)="cadastrar()">
-          Cadastrar
-        </button>
+        <div class="box-button-action">
+          <div>
+            <button
+              mat-raised-button
+              color="primary"
+              class="button"
+              (click)="cadastrar(funcionario)"
+            >
+              Enviar
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </form>
-
 </div>

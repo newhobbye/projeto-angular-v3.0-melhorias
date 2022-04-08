@@ -1,101 +1,58 @@
 <div class="container">
   <div class="container-title">
     <mat-toolbar id="mat-toolbar-title">
-
       <div class="container-flex">
-
-        <button id="general-button"
+        <button
+          id="general-button"
           mat-icon-button
           class="example-icon"
           aria-label="Example icon-button with menu icon"
+          (click)="drawer.toggle()"
         >
-          <mat-icon id="icon-title" >menu</mat-icon>
+          <mat-icon id="icon-title">menu</mat-icon>
         </button>
 
         <a href="">
           <div class="">
-            <img src="../assets/images/logo-header.png" id="img-title" alt="">
+            <img src="../assets/images/logo-header.png" id="img-title" alt="" />
           </div>
         </a>
-
-        <span class="example-spacer"></span>
-
       </div>
 
-      <div>
+      <div class="div-button-title-rigth">
+        <a href="https://www.linkedin.com/in/robson-monteiro-263014b4/">
+          <button mat-button color="primary">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </a>
 
-        <button mat-button color="primary"><mat-icon>favorite</mat-icon></button>
-
-        <button mat-button color="accent" ><mat-icon>share</mat-icon></button>
-
+        <a href="https://github.com/newhobbye">
+          <button mat-button color="accent">
+            <mat-icon>share</mat-icon>
+          </button>
+        </a>
       </div>
     </mat-toolbar>
-
   </div>
 
   <div class="container-menu">
-    <div class="container-menu-box">
-      <div class="box-icon">
-        <a class="ancora" href="FuncionarioComponent">
-          <mat-icon
-            id="icons"
-            aria-hidden="false"
-            aria-label="Example home icon"
-          >
-            home
-          </mat-icon>
-          <p class="p">Home</p>
-        </a>
-      </div>
+    <mat-drawer-container class="example-container" autosize>
+      <mat-drawer
+        #drawer
+        class="example-sidenav"
+        mode="side"
+        [(opened)]="showFiller"
+      >
+        <div class="box-icon">
+          <a class="ancora" href="EnviaComponent">
+            <button mat-raised-button color="primary" class="button-send">
+              <span>Cadastrar Funcionário</span>
+            </button>
+          </a>
+        </div>
+      </mat-drawer>
+    </mat-drawer-container>
 
-      <div class="box-icon">
-        <a class="ancora" href="EnviaComponent">
-          <mat-icon
-            id="icons"
-            aria-hidden="false"
-            aria-label="Example home icon"
-            >assignment</mat-icon
-          >
-          <p class="p">Enviar Funcionario</p>
-        </a>
-      </div>
-
-      <div class="box-icon">
-        <a class="ancora" href="BuscaComponent">
-          <mat-icon
-            id="icons"
-            aria-hidden="false"
-            aria-label="Example home icon"
-            >assignment_ind</mat-icon
-          >
-          <p class="p">Busca Especifica</p>
-        </a>
-      </div>
-
-      <div class="box-icon">
-        <a class="ancora" href="DeletaComponent">
-          <mat-icon
-            id="icons"
-            aria-hidden="false"
-            aria-label="Example home icon"
-            >delete</mat-icon
-          >
-          <p class="p">Deletar Funcionario</p>
-        </a>
-      </div>
-
-      <div class="box-icon">
-        <a class="ancora" href="EditaComponent">
-          <mat-icon
-            id="icons"
-            aria-hidden="false"
-            aria-label="Example home icon"
-            >dns</mat-icon
-          >
-          <p class="p">Editar Funcionario</p>
-        </a>
-      </div>
-    </div>
   </div>
 
   <div class="container-body">

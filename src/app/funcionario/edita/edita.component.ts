@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FuncionarioModel } from '../funcionario.model';
 import { FuncionarioService } from '../funcionario.service';
 
@@ -7,48 +8,62 @@ import { FuncionarioService } from '../funcionario.service';
   templateUrl: './edita.component.html',
   styleUrls: ['./edita.component.css']
 })
-export class EditaComponent implements OnChanges {
+export class EditaComponent implements OnInit {
 
-  funcionario: FuncionarioModel = new FuncionarioModel();
-  funcionario2: FuncionarioModel = new FuncionarioModel();
-
-  @Input() public id: number = 0;
-  public auxId: string = this.id.toString();
-
+  @Input() funcionario2: FuncionarioModel = new FuncionarioModel();
+  public id: number = Number(this.funcionario2.cpf);
   public response: string = '';
 
 
-  constructor(private funcionarioService: FuncionarioService) { }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if(changes['id']) //trabalhar neste changes pois pode estar errado
-    console.log(this.auxId);
+  constructor(private funcionarioService: FuncionarioService,
+    private router: Router
+    ) { }
+
+  ngOnInit(): void {
 
   }
 
-  buscarId(id: number){
-    this.funcionario2.cpf = this.id.toString();
-    this.funcionarioService.buscarId(id).subscribe(funcionario => {
-      this.funcionario = funcionario;
+  enviar(funcionario: FuncionarioModel){
 
-    }, err => {
-      console.log('Erro ao buscar por id: ' + err.message);
-
-      this.response = 'Erro ao buscar por id: Funcionario não encontrado!';
-
-    })
-  }
-
-  editarId(){
-    this.funcionario = this.funcionario2;
     this.funcionarioService.editarId(this.id, this.funcionario2).subscribe(funcionario =>{
+      alert('Concluido!');
+      this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.router.onSameUrlNavigation = 'reload';
+      this.router.navigate(['./../']);
 
+      this.funcionario2 = new FuncionarioModel();
     }, err =>{
-    console.log('Erro ao atualizar', err);
-   });
+
+      this.response = "Erro ao enviar, dados incorretos!";
+      console.log('Erro ao atualizar', err);
+    });
+
 
 
 
   }
+
+  cancelar(){
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate(['./../']);
+
+   }
+
+
+
+  // editarId(){
+  //   this.funcionario = this.funcionario2;
+  //   this.funcionarioService.editarId(this.id, this.funcionario2).subscribe(funcionario =>{
+
+  //   }, err =>{
+  //   console.log('Erro ao atualizar', err);
+  //  });
+
+
+
+
 
 }
