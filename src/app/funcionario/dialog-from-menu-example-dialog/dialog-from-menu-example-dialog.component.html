@@ -1,0 +1,17 @@
+<div class="div-absolute-delete">
+  <div class="text-delete">
+   <h2 class="text-delete-h2">Excluir funcionário? </h2>
+   <p class="text-delete-p" > {{data.name}} </p>
+ </div>
+
+ <div class="div-buttons-delete" >
+   <button mat-raised-button color="warn" class="button-confirm-delete" (click)="deleteId()">
+     <span>Deletar</span>
+   </button>
+
+   <button mat-raised-button class="button-cancel-delete" (click)="onNoClick()">
+    <!-- (click)="cancelDeleteClick()" -->
+     <span>Cancelar</span>
+   </button>
+ </div>
+</div>

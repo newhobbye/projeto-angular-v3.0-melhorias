@@ -157,6 +157,17 @@ grid-template-areas:"t t" "m bo";
   display:none;
 }
 
+#general-button{
+  display: none;
+}
+
+}
+
+@media (min-width: 706px) {
+
+  #general-button-min{
+    display: none;
+  }
 }
 
 @media (max-width: 586px) {

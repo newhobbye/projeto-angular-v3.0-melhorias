@@ -12,6 +12,24 @@
           <mat-icon id="icon-title">menu</mat-icon>
         </button>
 
+        <button
+          id="general-button-min"
+          mat-icon-button
+          [matMenuTriggerFor]="menu"
+          class="example-icon"
+          aria-label="Example icon-button with menu icon"
+        >
+          <mat-icon id="icon-title">menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+          <a class="ancora" href="EnviaComponent">
+            <button mat-menu-item>
+              <span>Cadastrar Funcionário</span>
+            </button>
+          </a>
+        </mat-menu>
+
         <a href="">
           <div class="">
             <img src="../assets/images/logo-header.png" id="img-title" alt="" />
@@ -52,7 +70,6 @@
         </div>
       </mat-drawer>
     </mat-drawer-container>
-
   </div>
 
   <div class="container-body">

@@ -161,56 +161,6 @@
 
 /*=========DELETE-FUNCTION=========*/
 
-/*=========DELETE-FUNCTION-ABSOLUTE=========*/
-
-.div-absolute-delete {
-  height: 25%;
-  width: 37%;
-  position: absolute;
-  text-align: left;
-  background-color: white;
-  top: 38%;
-  left: 33%;
-  box-shadow: 0 11px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
-  border-radius: 6px;
-}
-
-.text-delete{
-  height: 50%;
-  margin-left: 4%;
-  position: absolute;
-  top: 0;
-}
-
-.text-delete-h2{
-  font: 400 24px/32px Roboto,Helvetica Neue,sans-serif;
-  letter-spacing: normal;
-  margin-top: 6%;
-}
-
-.text-delete-p{
-  font-size: 16px!important;
-}
-
-.div-buttons-delete {
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  height: 40%;
-  position: absolute;
-  bottom: 13%;
-  right: 4%;
-
-}
-
-.button-confirm-delete{
-  margin-right: 2%;
-}
-
-.button-cancel-delete{
-  margin-right: 2%;
-}
-
 /*=========ALTERAÇÃO DIRETA=========*/
 
 tr:nth-child(even) {

@@ -1,0 +1,56 @@
+
+.text-delete-h2{
+  font: 400 1.2em/2.0em Roboto,Helvetica Neue,sans-serif!important;
+  letter-spacing: normal;
+  margin-top: 5%;
+}
+
+.text-delete-p{
+  font-size: 1.0em!important;
+}
+
+.div-buttons-delete {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  height: 40%;
+  margin-top: 5%;
+
+}
+
+.button-confirm-delete{
+  margin-right: 2%;
+}
+
+.button-cancel-delete{
+  margin-right: 2%;
+}
+
+
+@media (max-widh: 1024px){
+
+  .text-delete-h2 {
+    font: 400 20px/20px Roboto,Helvetica Neue,sans-serif;
+
+
+}
+
+.text-delete-p{
+  font-size: 14px!important;
+}
+
+}
+
+@media (max-widh: 768px){
+
+  .text-delete-h2 {
+    font: Roboto,Helvetica Neue,sans-serif;
+
+
+}
+
+.text-delete-p{
+  font-size: 14px!important;
+}
+
+}

@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { DialogFromMenuExampleDialog } from './funcionario/dialog-from-menu-example-dialog/dialog-from-menu-example-dialog.component';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -13,7 +14,6 @@ import { FuncionarioComponent } from './funcionario/funcionario.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FuncionarioService } from './funcionario/funcionario.service';
 import { EnviaComponent } from './funcionario/envia/envia.component';
-import { BuscaComponent } from './funcionario/busca/busca.component';
 
 import { EditaComponent } from './funcionario/edita/edita.component';
 import { MatTableModule } from '@angular/material/table';
@@ -21,17 +21,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { FilterPipe } from './funcionario/filter.pipe';
 import {MatInputModule} from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { DeletaComponent } from './funcionario/deleta/deleta.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
+  /*todos dialogs precisam estar aqui importados em entryComponents*/
+  entryComponents:[
+    DialogFromMenuExampleDialog,
+  ],
+
   declarations: [
     AppComponent,
     FuncionarioComponent,
     EnviaComponent,
-    BuscaComponent,
-    DeletaComponent,
     EditaComponent,
     FilterPipe,
+    DialogFromMenuExampleDialog,
 
   ],
   imports: [
@@ -48,9 +52,13 @@ import { DeletaComponent } from './funcionario/deleta/deleta.component';
     MatButtonModule,
     MatInputModule,
     MatSidenavModule,
+    MatDialogModule,
+
 
 
   ],
+
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [FuncionarioService, HttpClientModule],
   bootstrap: [AppComponent]
 })
